@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazim-Muhamad-Nazim</title>
+    <style>
+        img {
+            width: 100%;
+            cursor: pointer;
+            margin: 0;
+            border: 0;
+            padding: 0;
+        }
+        body, footer {
+            margin: 0;
+        }
+        /* Optionally hide the audio player controls if not needed */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio-player" preload="auto">
+        <source src="Marudhaani-Marudhaani.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <footer>
+        <img src="img/Manmadha kujiii.png" alt="Image" class="play-button">
+        <img src="img/Tren.png" alt="Image" class="play-button">
+        <img src="img/No Love.png" alt="Image" class="play-button">
+    </footer>
+
+    <script>
+        // Function to play the audio
+        function playAudio() {
+            var audio = document.getElementById('audio-player');
+            audio.play().catch(function(error) {
+                console.log('Playback failed:', error);
+            });
+        }
+
+        // Add click event listener to all play buttons
+        document.querySelectorAll('.play-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                playAudio();
+            });
+        });
+
+        // Attempt to play audio on page load
+        window.addEventListener('load', function() {
+            // Try to play audio
+            playAudio();
+        });
+    </script>
+</body>
+</html>
